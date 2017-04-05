@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Case Study 1</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.1.1.js"></script>
+</head>
+<body>
+    <div class="container">
+<h2>Case Study 1</h2>
+<hr />
+<h3>Detail of Employee</h3>
+<button type="button" class="btn btn-primary btn-create">Create New</button>
+<form role="form">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input id="first-name" name="first-name" type="text" class="form-control" placeholder="First Name">
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input id="last-name" name="last-name" type="text" class="form-control" placeholder="Last Name">
+            </div>
+            <div class="form-group">
+                <label for="gender-radios">Gender</label>
+                <div id="gender-radios">
+                    <label class="checkbox-inline"><input type="radio" name="gender-radios" id="gender-radios-1" value="Male"> Male</label>
+                    <label class="checkbox-inline"><input type="radio" name="gender-radios" id="gender-radios-0" value="Female"> Female</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="name">Job Title</label>
+                <select class="form-control" id="job-title">
+                    <option value='0'>Select Job Title</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="checkbox-skills">Skills</label>
+                <div id="checkbox-skills">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="activation-checkbox">Activation</label>
+                <div name="activation-checkbox">
+                    <label class="checkbox-inline"><input type="checkbox" id="activation-checkbox" name="activation-checkbox"> Actived</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<button type="button" class="btn btn-success btn-save">Save</button>
+<button type="button" class="btn btn-warning btn-cancel">Cancel</button>
+<hr />
+<h3>List of Employees</h3>
+<table class="table table-striped">
+    <caption>List of Employees</caption>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Job Title</th>
+            <th>Skill</th>
+            <th>Activation</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody class="table-body">
+    </tbody>
+</table>
+    </div>
+</body>
+</html>
+<script>
+    var vId = 0;
+    var selectedId = 0;
+    $(document).ready(function () {
+        $.getJSON("Data/jobtitles.json", function (data) {
+            var optJobs = [];
+            $.each(data, function (key, val) {
+                optJobs.push('<option value=' + val.ID + '>' + val.JobTitle + '</option>');
+            });
+            $("#job-title").append(optJobs);
+        });
+
+        $.getJSON("Data/skills.json", function (data) {
+            var cbSkills = [];
+            $.each(data, function (key, val) {
+                cbSkills.push('<label class="checkbox-inline" style="padding-right:20px;"><input type="checkbox"  name="checkbox-skills" id="inlineCheckbox' + val.ID + '" value="' + val.ID + '">' + val.Skill + '</label>');
+            });
+            $("#checkbox-skills").append(cbSkills);
+        });
+
+        $(".btn-create").click(function () {
+            selectedId = 0;
+            $('tr.selected').removeClass('selected');
+            $("#first-name").val("");
+            $("#last-name").val("");
+            $('input[name="gender-radios"]').prop('checked', false);
+            $("#job-title").val("0");
+            $('input[name="checkbox-skills"]').prop('checked', false);
+            $("#activation-checkbox").prop('checked', false);
+        });
+    });
+
+    $(".btn-save").click(function () {
+        ++vId;
+        var vFirstName = $("#first-name").val();
+        var vLastName = $("#last-name").val();
+        var vGenderValue = $("#gender-radios input[type='radio']:checked").val();
+        var vJobTitleValue = $("#job-title").val();
+        var vJobTitleText = $("#job-title :selected").text();
+        var vSkillsValue = [];
+        var vSkillsText = [];
+
+        $('#checkbox-skills input[type=checkbox]:checked').each(function () {
+            vSkillsValue.push($(this).val());
+            vSkillsText.push($(this).parent().text());
+        });
+
+        var vActivedValue = $("#activation-checkbox").is(":checked");
+        var vActivedIcon = vActivedValue == true ? "<span class='glyphicon glyphicon-ok' style='color: green;' aria-hidden='true'>" : "<span class='glyphicon glyphicon-remove' style='color: red;' aria-hidden='true'>";
+        
+        if (selectedId == 0) {
+            var tr = "<tr id='list-" + vId + "' class='selected'><td class='list-first-name'>" + vFirstName + "</td>";
+            tr += "<td class='list-last-name'>" + vLastName + "</td>";
+            tr += "<td class='list-gender'>" + vGenderValue + "</td>";
+            tr += "<td class='list-job-title' data-id='" + vJobTitleValue + "'>" + vJobTitleText + "</td>";
+            tr += "<td class='list-skills' data-id='" + vSkillsValue + "'>" + (vSkillsText.toString()).replace(/\,/g, ', ') + "</td>";
+            tr += "<td class='list-actived' text-transform='capitalize' data-id=" + vActivedValue + ">" + vActivedIcon + "</td>";
+            tr += '<td><div class="btn-group btn-group-sm btn-group-solid">' +
+                    '<button type="button" class="btn btn-edit btn-warning" data-id="' + vId + '"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>' +
+                    '<button type="button" class="btn btn-delete btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>' +
+                    '</div></td></tr>';
+            $(".table-body").append(tr);
+        } else {
+            var parent = $("#list-" + selectedId.toString());
+            $(parent).children('.list-first-name').html(vFirstName);
+            $(parent).children('.list-last-name').html(vLastName);
+            $(parent).children('.list-gender').html(vGenderValue);
+            $(parent).children('.list-job-title').attr('data-id', vJobTitleValue);
+            $(parent).children('.list-job-title').html(vJobTitleText);
+            $(parent).children('.list-skills').attr('data-id', vSkillsValue);
+            $(parent).children('.list-skills').html((vSkillsText.toString()).replace(/\,/g, ', '));
+            $(parent).children('.list-actived').attr('data-id', vActivedValue);
+            $(parent).children('.list-actived').html(vActivedIcon);
+        }
+    });
+
+    $(".table-body").on("click", ".btn-edit", function () {
+        $(this).closest('tr').addClass('selected').siblings().removeClass('selected');
+        selectedId = parseInt($(this).attr("data-id"));
+        var parent = $(this).closest('tr');
+
+        $("#first-name").val($(parent).children('.list-first-name').html());
+        $("#last-name").val($(parent).children('.list-last-name').html());
+        $('input[name="gender-radios"][value="' + $(parent).children('.list-gender').html() + '"]').prop('checked', true);
+        $("#job-title").val($(parent).children('.list-job-title').attr('data-id'));
+
+        var vSkillsValue = ($(parent).children('.list-skills').attr('data-id')).split(',');
+        $('input[name="checkbox-skills"]').prop('checked', false);
+
+        $.each(vSkillsValue, function (key, val) {
+            $('input[name="checkbox-skills"][value="' + val + '"]').prop('checked', true);
+        });
+
+        $("#activation-checkbox").prop('checked', $(parent).children('.list-actived').attr('data-id') == 'true');
+    });
+
+    $(".table-body").on("click", ".btn-delete", function () {
+        $(this).closest('tr').remove();
+    });
+</script>
+
+<style>
+     .table > tbody > tr.selected > td{
+        background-color: #b3dcef;
+    }
+</style>

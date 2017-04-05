@@ -1,0 +1,116 @@
+﻿<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h3>Details</h3>
+        <div class="row form-detail" style="display: none">
+            <form class="bs-example bs-example-form" role="form">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="FirstName" class="col-md-4 control-label">First Name</label>
+                        <div class="col-md-8">
+                            <input id="FirstName" name="FirstName" type="text" class="form-control" placeholder="First Name">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="LastName" class="col-md-4 control-label">Last Name</label>
+                        <div class="col-md-8">
+                            <input id="LastName" name="LastName" type="text" class="form-control" placeholder="Last Name">
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="Salary" class="col-md-4 control-label">Salary</label>
+                        <div class="col-md-8">
+                            <div class="input-group">
+                                <span class="input-group-addon">Rp.</span>
+                                <input id="Salary" name="Salary" type="number" class="form-control" placeholder="Salary">
+                                <span class="input-group-addon">.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="Score" class="col-md-4 control-label">Score</label>
+                        <div class="col-md-8">
+                            <input id="Score" name="Score" type="number" class="form-control" placeholder="Score">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <hr />
+        <button type="button" class="btn btn-primary btn-create">Create New</button>
+        <button type="button" class="btn btn-success btn-save" style="display: none;">Save</button>
+        <button type="button" class="btn btn-warning btn-cancel" style="display: none;">Cancel</button>
+    </div>
+</div>
+
+<script>
+    $(".btn-create").click(function () {
+        $("#FirstName").focus();
+        $("#FirstName").val("");
+        $("#LastName").val("");
+        $("#Salary").val("0");
+        $("#Score").val("0.00");
+
+        $(".btn-save").css("display", "");
+        $(".btn-cancel").css("display", "");
+
+        vSelectedIndex = -1;
+        $(".btn-create").css("display", "none");
+        $(".form-detail").css("display", "");
+    });
+
+    $(".btn-save").click(function () {
+        var valBonus = GetBonus($("#Score").val()) * parseFloat($("#Salary").val()).toFixed(2);
+        if (vSelectedIndex == -1) {
+            var listEmployee = "<tr><td name='FirstName'>" + $("#FirstName").val() + "</td><td name='LastName'>" + $("#LastName").val() + "</td><td name='Score'>" + $("#Score").val() + "</td><td name='Salary'>" + parseFloat($("#Salary").val()).toLocaleString() + "</td><td name='Bonus'>" + valBonus.toLocaleString() + "</td><td><div class='btn-group btn-group-sm btn-group-solid'><button type='button' class='btn btn-edit btn-warning'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></button><button type='button' class='btn btn-delete btn-danger'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button></div></td></tr>";
+            $(".employees-body").append(listEmployee);
+        }
+        else {
+            var selectedTR = $('.employees-body').children().eq(vSelectedIndex);
+            $(selectedTR).find("td[name='FirstName']").html($("#FirstName").val());
+            $(selectedTR).find("td[name='LastName']").html($("#LastName").val());
+            $(selectedTR).find("td[name='Salary']").html($("#Salary").val().toLocaleString());
+            $(selectedTR).find("td[name='Score']").html($("#Score").val());
+            $(selectedTR).find("td[name='Bonus']").html(valBonus.toLocaleString());
+        }
+
+        $(".btn-save").css("display", "none");
+        $(".btn-cancel").css("display", "none");
+        $(".btn-create").css("display", "");
+        $(".form-detail").css("display", "none");
+    });
+
+    $(".btn-cancel").click(function () {
+        $("#FirstName").val("");
+        $("#LastName").val("");
+        $("#Salary").val("0");
+        $("#Score").val("0.00");
+
+        $(".btn-save").css("display", "none");
+        $(".btn-cancel").css("display", "none");
+        $(".btn-create").css("display", "");
+        $(".form-detail").css("display", "none");
+    });
+
+    $(".employees-body").on("click", ".btn-edit", function ()
+    {
+        vSelectedIndex = $(this).closest('tr').index();
+
+        $("#FirstName").val($(this).closest('tr').find("td[name='FirstName']").html());
+        $("#LastName").val($(this).closest('tr').find("td[name='LastName']").html());
+        $("#Salary").val(($(this).closest('tr').find("td[name='Salary']").html()).replace(",", ""));
+        $("#Score").val($(this).closest('tr').find("td[name='Score']").html());
+
+        $(".btn-create").css("display", "none");
+        $(".form-detail").css("display", "");
+        $(".btn-save").css("display", "");
+        $(".btn-cancel").css("display", "");
+    });
+
+    $(".employees-body").on("click", ".btn-delete", function ()
+    {
+        $(this).closest('tr').remove();
+    });
+</script>

@@ -1,0 +1,11 @@
+﻿[
+    { "ID": 1, "Skill": "Bootstrap" },
+    { "ID": 2, "Skill": "JQuery" },
+    { "ID": 3, "Skill": "DotNet" },
+    { "ID": 4, "Skill": "Java" },
+    { "ID": 5, "Skill": "PHP" },
+    { "ID": 6, "Skill": "SQL" },
+    { "ID": 7, "Skill": "Javascript" },
+    { "ID": 8, "Skill": "HTML" },
+    { "ID": 9, "Skill": "CSS" }
+]

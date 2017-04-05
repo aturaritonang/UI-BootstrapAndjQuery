@@ -1,0 +1,8 @@
+﻿[
+    { "ID": 1, "JobTitle": "Chief Executive Officer" },
+    { "ID": 2, "JobTitle": "Vice President of Engineering" },
+    { "ID": 3, "JobTitle": "Engineering Manager" },
+    { "ID": 4, "JobTitle": "Senior Tool Designer" },
+    { "ID": 5, "JobTitle": "Design Engineer" },
+    { "ID": 6, "JobTitle": "Research and Development Manager" }
+]

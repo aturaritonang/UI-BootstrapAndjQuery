@@ -1,0 +1,280 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Navbar</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.1.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Default Navbar</h2>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">TutorialsPoint</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">iOS</a></li>
+                    <li><a href="#">SVN</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Java
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">jmeter</a></li>
+                            <li><a href="#">EJB</a></li>
+                            <li><a href="#">Jasper Report</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <h2>Responsive Navbar</h2>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#example-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">TutorialsPoint</a>
+            </div>
+            <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">iOS</a></li>
+                    <li><a href="#">SVN</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Java <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">jmeter</a></li>
+                            <li><a href="#">EJB</a></li>
+                            <li><a href="#">Jasper Report</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <h2>Forms in Navbar</h2>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">TutorialsPoint</a>
+            </div>
+            <div>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+        </nav>
+        <h2>Buttons in Navbar</h2>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">TutorialsPoint</a>
+            </div>
+            <div>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit Button</button>
+                </form>
+                <button type="button" class="btn btn-default navbar-btn">
+                    Navbar Button
+                </button>
+            </div>
+        </nav>
+
+        <h2>Text in Navbar</h2>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">TutorialsPoint</a>
+            </div>
+            <div>
+                <p class="navbar-text">Signed in as Thomas</p>
+            </div>
+        </nav>
+
+        <h2>Non-nav Links</h2>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">TutorialsPoint</a>
+            </div>
+            <div>
+                <p class="navbar-text navbar-right">
+                    Signed in as <a href="#" class="navbar-link">Thomas</a>
+                </p>
+            </div>
+        </nav>
+
+        <h2>Component Alignment</h2>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">TutorialsPoint</a>
+            </div>
+            <div>
+                <!--Left Align-->
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Java
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">jmeter</a></li>
+                            <li><a href="#">EJB</a></li>
+                            <li><a href="#">Jasper Report</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left" role="search">
+                    <button type="submit" class="btn btn-default">
+                        Left align-Submit Button
+                    </button>
+                </form>
+                <p class="navbar-text navbar-left">Left align-Text</p>
+                <!--Right Align-->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Java <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">jmeter</a></li>
+                            <li><a href="#">EJB</a></li>
+                            <li><a href="#">Jasper Report</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-right" role="search">
+                    <button type="submit" class="btn btn-default">
+                        Right align-Submit Button
+                    </button>
+                </form>
+                <p class="navbar-text navbar-right">Right align-Text</p>
+            </div>
+        </nav>
+        <br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </div>
+
+    <div class="container"><h1>Bootstrap  tab panel example (using nav-pills)  </h1></div>
+    <div id="exTab1" class="container">
+        <ul class="nav nav-pills">
+            <li class="active">
+                <a href="#1a" data-toggle="tab">Overview</a>
+            </li>
+            <li>
+                <a href="#2a" data-toggle="tab">Using nav-pills</a>
+            </li>
+            <li>
+                <a href="#3a" data-toggle="tab">Applying clearfix</a>
+            </li>
+            <li>
+                <a href="#4a" data-toggle="tab">Background color</a>
+            </li>
+        </ul>
+
+        <div class="tab-content clearfix">
+            <div class="tab-pane active" id="1a">
+                <h3>Content's background color is the same for the tab</h3>
+            </div>
+            <div class="tab-pane" id="2a">
+                <h3>We use the class nav-pills instead of nav-tabs which automatically creates a background color for the tab</h3>
+            </div>
+            <div class="tab-pane" id="3a">
+                <h3>We applied clearfix to the tab-content to rid of the gap between the tab and the content</h3>
+            </div>
+            <div class="tab-pane" id="4a">
+                <h3>We use css to change the background color of the content to be equal to the tab</h3>
+            </div>
+        </div>
+    </div>
+
+
+    <hr/>
+    <div class="container"><h2>Example tab 2 (using standard nav-tabs)</h2></div>
+
+    <div id="exTab2" class="container">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#1" data-toggle="tab">Overview</a>
+            </li>
+            <li>
+                <a href="#2" data-toggle="tab">Without clearfix</a>
+            </li>
+            <li>
+                <a href="#3" data-toggle="tab">Solution</a>
+            </li>
+        </ul>
+
+        <div class="tab-content ">
+            <div class="tab-pane active" id="1">
+                <h3>Standard tab panel created on bootstrap using nav-tabs</h3>
+            </div>
+            <div class="tab-pane" id="2">
+                <h3>Notice the gap between the content and tab after applying a background color</h3>
+            </div>
+            <div class="tab-pane" id="3">
+                <h3>add clearfix to tab-content (see the css)</h3>
+            </div>
+        </div>
+    </div>
+
+    <hr/>
+
+    <div class="container"><h2>Example 3 </h2></div>
+    <div id="exTab3" class="container">
+        <ul class="nav nav-pills">
+            <li class="active">
+                <a href="#1b" data-toggle="tab">Overview</a>
+            </li>
+            <li>
+                <a href="#2b" data-toggle="tab">Using nav-pills</a>
+            </li>
+            <li>
+                <a href="#3b" data-toggle="tab">Applying clearfix</a>
+            </li>
+            <li>
+                <a href="#4a" data-toggle="tab">Background color</a>
+            </li>
+        </ul>
+        <div class="tab-content clearfix">
+            <div class="tab-pane active" id="1b">
+                <h3>Same as example 1 but we have now styled the tab's corner</h3>
+            </div>
+            <div class="tab-pane" id="2b">
+                <h3>We use the class nav-pills instead of nav-tabs which automatically creates a background color for the tab</h3>
+            </div>
+            <div class="tab-pane" id="3b">
+                <h3>We applied clearfix to the tab-content to rid of the gap between the tab and the content</h3>
+            </div>
+            <div class="tab-pane" id="4b">
+                <h3>We use css to change the background color of the content to be equal to the tab</h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

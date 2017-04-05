@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Navigation Elements</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.1.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Tabular Navigation or Tabs</h2>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">SVN</a></li>
+            <li><a href="#">iOS</a></li>
+            <li><a href="#">VB.Net</a></li>
+            <li><a href="#">Java</a></li>
+            <li><a href="#">PHP</a></li>
+        </ul>
+        <h2>Pills Navigation</h2>
+        <h3>Basic Pills</h3>
+        <ul class="nav nav-pills">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">SVN</a></li>
+            <li><a href="#">iOS</a></li>
+            <li><a href="#">VB.Net</a></li>
+            <li><a href="#">Java</a></li>
+            <li><a href="#">PHP</a></li>
+        </ul>
+        <h3>Vertical Pills</h3>
+        <ul class="nav nav-pills nav-stacked">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">SVN</a></li>
+            <li><a href="#">iOS</a></li>
+            <li><a href="#">VB.Net</a></li>
+            <li><a href="#">Java</a></li>
+            <li><a href="#">PHP</a></li>
+        </ul>
+
+        <h2>Justified Nav Elements</h2>
+        <ul class="nav nav-pills nav-justified">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">SVN</a></li>
+            <li><a href="#">iOS</a></li>
+            <li><a href="#">VB.Net</a></li>
+            <li><a href="#">Java</a></li>
+            <li><a href="#">PHP</a></li>
+        </ul><br><br>
+        <ul class="nav nav-tabs nav-justified">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">SVN</a></li>
+            <li><a href="#">iOS</a></li>
+            <li><a href="#">VB.Net</a></li>
+            <li><a href="#">Java</a></li>
+            <li><a href="#">PHP</a></li>
+        </ul>
+
+        <h2>Disabled Link</h2>
+        <ul class="nav nav-pills">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">SVN</a></li>
+            <li class="disabled"><a href="#">iOS(disabled link)</a></li>
+            <li><a href="#">VB.Net</a></li>
+            <li><a href="#">Java</a></li>
+            <li><a href="#">PHP</a></li>
+        </ul><br><br>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">SVN</a></li>
+            <li><a href="#">iOS</a></li>
+            <li class="disabled"><a href="#">VB.Net(disabled link)</a></li>
+            <li><a href="#">Java</a></li>
+            <li><a href="#">PHP</a></li>
+        </ul>
+
+        <h2>Dropdowns</h2>
+        <h3>Tabs with Dropdown</h3>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">SVN</a></li>
+            <li><a href="#">iOS</a></li>
+            <li><a href="#">VB.Net</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Java <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Swing</a></li>
+                    <li><a href="#">jMeter</a></li>
+                    <li><a href="#">EJB</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </li>
+            <li><a href="#">PHP</a></li>
+        </ul>
+
+        <h3>Pills with Dropdowns</h3>
+        <ul class="nav nav-pills">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">SVN</a></li>
+            <li><a href="#">iOS</a></li>
+            <li><a href="#">VB.Net</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Java <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Swing</a></li>
+                    <li><a href="#">jMeter</a></li>
+                    <li><a href="#">EJB</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </li>
+            <li><a href="#">PHP</a></li>
+        </ul>
+        <br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </div>
+</body>
+</html>
+<script>
+    $(document).ready(function () {
+        $("li.disabled").children("a").css("pointer-events", "none");
+    });
+    $("a").click(function () {
+        $(this).closest('li').not('.disabled').addClass('active').siblings().removeClass('active');
+    });
+</script>

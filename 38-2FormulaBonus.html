@@ -1,0 +1,57 @@
+﻿<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <table class="table">
+            <thead class="formula-header">
+                <tr>
+                    <th>Grade</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Multiply</th>
+                </tr>
+            </thead>
+            <tbody class="formula-body"></tbody>
+        </table>
+        <div class="row">
+            <hr />
+            <button type="button" class="btn btn-primary btn-edit-save" value="Edit">Edit</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(".btn-edit-save").click(function () {
+        if ($(this).val() == 'Edit') {
+            $('input.formula-item').removeAttr("hidden");
+            $('span.formula-item').attr('hidden', 'hidden');
+            $(this).val("Save");
+
+        }
+        else {
+            $('input.formula-item').attr('hidden', 'hidden');
+            $('span.formula-item').removeAttr("hidden");
+            
+            $('.formula-body tr').each(function (index) {
+                vFormula = vListFormula[index];
+                vFormula.From = $(this).find("input[name='formula-from']").val();
+                vFormula.To = $(this).find("input[name='formula-to']").val();
+                vFormula.Multiply = $(this).find("input[name='formula-multiply']").val();
+                vListFormula[index] = vFormula;
+                ($(this).find("input[name='formula-from']")).siblings("span").html(vFormula.From);
+                ($(this).find("input[name='formula-to']")).siblings("span").html(vFormula.To);
+                ($(this).find("input[name='formula-multiply']")).siblings("span").html(vFormula.Multiply);
+
+            });
+            $(this).val("Edit");
+            RecalculateBonus();
+        }
+        $(this).html($(this).val());
+    });
+
+    function RecalculateBonus() {
+        $(".employees-body tr").each(function (index) {
+            var vBonusVal = GetBonus($(this).find("td[name='Score']").html()) * parseFloat($(this).find("td[name='Salary']").html()).toFixed(2);
+            $(this).find("td[name='Bonus']").html(vBonusVal);
+            alert(vBonusVal);
+        });
+    }
+</script>

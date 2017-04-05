@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Lists</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.1.1.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Lists</h2>
+        <div class="col-md-6">
+            <h4>Example of Ordered List</h4>
+            <ol id="ordered-list">
+            </ol>
+            <h4>Example of UnOrdered List</h4>
+            <ul id="unordered-list">
+            </ul>
+            <h4>Example of Unstyled List</h4>
+            <ul id="unstylist-list" class="list-unstyled">
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h4>Example of Inline List</h4>
+            <ul id="inline-list" class="list-inline">
+            </ul>
+            <h4>Example of Definition List</h4>
+            <dl id="v-definition-list">
+            </dl>
+            <h4>Example of Horizontal Definition List</h4>
+            <dl id="h-definition-list" class="dl-horizontal">
+            </dl>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $(document).ready(function () {
+        $.getJSON("Data/Items.json", function (data) {
+            var items = [];
+            $.each(data, function (key, val) {
+                items.push("<li>" + val.Item + "</li>");
+            });
+
+            var itemsDef = [];
+            $.each(data, function (key, val) {
+                itemsDef.push("<dt>" + val.Title + "</dt>");
+                itemsDef.push("<dd>" + val.Item + "</dd>");
+            });
+            $("#ordered-list").append(items);
+            $("#unordered-list").append(items);
+            $("#unstylist-list").append(items);
+            $("#inline-list").append(items);
+
+            $("#v-definition-list").append(itemsDef);
+            $("#h-definition-list").append(itemsDef);
+        });
+    });
+</script>

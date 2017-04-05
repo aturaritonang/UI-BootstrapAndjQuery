@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Inputs</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.1.1.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Inputs</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="name">Label</label>
+                        <input type="text" class="form-control" placeholder="Text input">
+                    </div>
+                </form>
+                <div class="form-group">
+                    <label for="name">Text Area</label>
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="checkbox-list">Example of Default Checkbox and radio button </label>
+                <div id="checkboxs-radios-list" name="checkbox-list">
+                </div>
+                <label for="name">Example of Inline Checkbox and radio button </label>
+                <div id="checkboxs-radios-inline" name="checkbox-inline">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $(document).ready(function () {
+        $.getJSON("Data/Items.json", function (data) {
+            var radios = [];
+            var checkBoxes = [];
+            var radiosInline = [];
+            var checkBoxesInline = [];
+            var checked = 'checked';
+            var index = 0;
+            $.each(data, function (key, val) {
+                index++;
+                if (index > 1) {
+                    checked = '';
+                }
+                checkBoxes.push('<div class="checkbox"><label><input type="checkbox" value="checkbox' + val.Value + '"> Check box ' + val.Item + '</label></checkbox>');
+                radios.push('<div class="radio"><label><input type="radio" name="optionsRadios" id="optionsRadios' + val.Value + '" value="option' + val.Value + '" ' + checked + '> Radio ' + val.Item + '</label></div>');
+                checkBoxesInline.push('<label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox' + val.Value + '" value="option' + val.Value + '">' + val.Item + '</label>');
+                radiosInline.push('<label class="checkbox-inline"><input type="radio" name="optionsRadiosinline" id="optionsRadios' + val.Value + '" value="option' + val.Value + '" ' + checked + '> ' + val.Item + '</label>');
+            });
+
+            $("#checkboxs-radios-list").append(checkBoxes);
+            $("#checkboxs-radios-list").append(radios);
+
+            $("#checkboxs-radios-inline").append(checkBoxesInline);
+            $("#checkboxs-radios-inline").append(radiosInline);
+        });
+    });
+</script>

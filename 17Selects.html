@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Selects</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.1.1.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Selects</h2>
+        <form role="form">
+            <div class="form-group">
+                <label for="name">Select list</label>
+                <select class="form-control" id="select-list">
+                </select>
+                <label for="name">Mutiple Select list</label>
+                <select multiple class="form-control" id="multi-select-list">
+                </select>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+<script>
+    $(document).ready(function () {
+        $.getJSON("Data/Items.json", function (data) {
+            var options = [];
+            $.each(data, function (key, val) {
+                options.push('<option>' + val.Item + '</option>');
+            });
+
+            $("#select-list").append(options);
+            $("#multi-select-list").append(options);
+        });
+    });
+</script>

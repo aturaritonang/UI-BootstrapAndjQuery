@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Form Control States</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.1.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Form Control States</h2>
+        <form class="form-horizontal" role="form">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="focusedInput" class="col-sm-2 control-label">Focused</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="focusedInput" autofocus="autofocus" type="text" value="This is focused...">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-sm-2 control-label">
+                            Disabled
+                        </label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>
+                        </div>
+                    </div>
+                    <fieldset disabled>
+                        <div class="form-group">
+                            <label for="disabledTextInput" class="col-sm-2 control-label">
+                                Disabled input
+                            </label>
+                            <div class="col-sm-10">
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="disabledSelect" class="col-sm-2 control-label">
+                                Disabled select menu
+                            </label>
+                            <div class="col-sm-10">
+                                <select id="disabledSelect" class="form-control">
+                                    <option>Disabled select</option>
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group has-success">
+                        <label class="col-sm-2 control-label" for="inputSuccess">
+                            Input with success
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputSuccess">
+                        </div>
+                    </div>
+                    <div class="form-group has-warning">
+                        <label class="col-sm-2 control-label" for="inputWarning">
+                            Input with warning
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputWarning">
+                        </div>
+                    </div>
+                    <div class="form-group has-error">
+                        <label class="col-sm-2 control-label" for="inputError">
+                            Input with error
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputError">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

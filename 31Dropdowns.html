@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Dropdowns</title>
+    <!--Di dalam konten head-->
+    <!--Menambahkan CSS & Javascript dengan komposisi berikut. Harus berurutan seperti dibawah, tidak boleh terbalik-->
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.1.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Dropdowns</h2>
+        <div class="page-header">
+            <div class="dropdown">
+                <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                    Topics
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#">Java</a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#">Data Mining</a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#">
+                            Data Communication/Networking
+                        </a>
+                    </li>
+                    <li role="presentation" class="divider"></li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#">Separated link</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <h2>Alignment</h2>
+        <div class="dropdown">
+            <button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
+                    data-toggle="dropdown">
+                Topics
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu"
+                aria-labelledby="dropdownMenu1">
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="#">Java</a>
+                </li>
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="#">Data Mining</a>
+                </li>
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="#">
+                        Data Communication/Networking
+                    </a>
+                </li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="#">Separated link</a>
+                </li>
+            </ul>
+        </div>
+
+        <br />
+        <h2>Headers</h2>
+        <div class="dropdown">
+            <button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
+                    data-toggle="dropdown">
+                Topics
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation" class="dropdown-header">Dropdown header</li>
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="#">Java</a>
+                </li>
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="#">Data Mining</a>
+                </li>
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="#">
+                        Data Communication/Networking
+                    </a>
+                </li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation" class="dropdown-header">Dropdown header</li>
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="#">Separated link</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
